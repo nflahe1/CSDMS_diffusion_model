@@ -1,6 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+def calaculate_stable_time_step(dx, diffusisivty):
+    return 0.5 * dx**2 / diffusivity
+    
+
 def plot_profile(x, y, color="r", title=None):
     plt.figure()
     plt.plot(x, y, color)
@@ -29,7 +33,7 @@ plot_profile(x, C, title="Initial concentration profile")
 plt.savefig("initial_profile.png")
 
 nt = 5000
-dt = 0.5 * dx**2 / D
+dt = calculate_stable_time_step(dx, D)
 
 
 for t in range(0, nt):
